@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<div class="container-fluid whitebg">
+    <p class="text-center">Products</p>
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Sort by:
+      </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+           <li><a class="dropdown-item" href="#">Default</a></li>
+        <li><a class="dropdown-item" href="#">Name (A-Z)</a></li>
+        <li><a class="dropdown-item" href="#">Name (Z-A)</a></li>
+        <li><a class="dropdown-item" href="#">Price (Low to High)</a></li>
+        <li><a class="dropdown-item" href="#">Price (High to Low)</a></li>
+        </ul>
+
+</div>
+{% endblock %}
