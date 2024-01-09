@@ -1,0 +1,28 @@
+*{font-family: 'Poppins';font-size: 22px;}
+body {background-color:#FFEDD6 !important}
+body::-webkit-scrollbar {
+  display: none;
+}
+/* hide scroll bar but enable scrolling */
+/* Navbar */
+.navbarbg {
+    background-color: #89B4F4;
+}
+
+.white {
+    color: white !important;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #4555e6 !important; /* Try using !important */
+    /* Other styles you want to apply on hover */
+}
+
+.margin{
+margin-left:2vw;
+margin-right:2vw;
+}
+
+.marginicon{
+margin-right:3vw;
+}
