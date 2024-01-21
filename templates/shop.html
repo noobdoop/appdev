@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/shop.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container-fluid whitebg">
+    <div class="row">
+        <div class="col-auto">
+            <p class="producttext">Products</p>
+        </div>
+        <div class="col-lg-5">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sort By:
+                </button>
+                <ul class="dropdown-menu button" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Default</a></li>
+                    <li><a class="dropdown-item" href="#">Name (A-Z)</a></li>
+                    <li><a class="dropdown-item" href="#">Name (Z-A)</a></li>
+                    <li><a class="dropdown-item" href="#">Price (Low to High)</a></li>
+                    <li><a class="dropdown-item" href="#">Price (High to Low)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-6 searchbar d-flex align-items-center justify-content-end">
+            <div class="input-group rounded">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-0" id="search-addon">
+                    <i class="fa fa-search"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid productrow">
+    <div class="row">
+        {% for product in products %}
+            <div class="col-3">
+                    <div class="image-box">
+                        <p class="name">{{ product.name }}</p>
+                        <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                        <p class="price">${{ product.price }}</p>
+                        <div class="rating">
+                            {% for i in range(product.rating) %}
+                                     <span class="fa fa-star checked"></span>
+                            {% endfor %}
+                        </div>
+                    </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
