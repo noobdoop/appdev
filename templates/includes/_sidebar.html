@@ -1,0 +1,20 @@
+
+        <div class="row flex-nowrap ">
+            <div class="bg-dark col-auto col-md-3 col-lg-3 min-vh-100 d-flex flex-column justify-content-between">
+                <div class="bg-dark p-2">
+                    <a href="" class="d-flex text-decoration-none align items-center text-white">
+                        <span class="fs-5 d-none d-sm-inline">Edit Profile</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mt-4">
+                        <li class="nav-item {% if request.path == url_for('update_password', id=id) %}active{% endif %}">
+                            <a class="nav-link margin white" href="{{ url_for('update_password', id=id) }}">Update Password</a>
+                        </li>
+                        <li class="nav-item {% if request.path == url_for('retrieve_users') %}active{% endif %}">
+                             <a class="nav-link active margin" href="{{ url_for('retrieve_users') }}">Update User</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
