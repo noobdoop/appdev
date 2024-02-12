@@ -1,0 +1,65 @@
+{% extends "base2.html" %}
+{% block title %}Toyhub - Feedback{% endblock %}
+
+{% block content2 %}
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone No</th>
+        <th>Feedback Type</th>
+        <th>Feedback</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for feedback in feedback_list %}
+        <tr>
+          <td>{{ feedback.get_Name() }}</td>
+          <td>{{ feedback.get_Email() }}</td>
+          <td>{{ feedback.get_PhoneNo() }}</td>
+          <td>{{ feedback.get_Feedback_type() }}</td>
+            <td>{{ feedback.get_Feedback() }}</td>
+<td>
+          <form action="{{url_for('delete_feedback', name=feedback.get_Name())}}" method="POST">
+<!--            <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete {{feedback.get_Name()}}');">-->
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{feedback.get_Name()}}">
+  Delete
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal_{{feedback.get_Name()}}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Confirmation</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Are you sure you want to delete {{feedback.get_Name()}}'s feedback?
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <input type="submit" value="Delete" class="btn btn-danger">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
